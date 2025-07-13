@@ -1,23 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://gaurav-portfolio.netlify.app/</loc>
-    <priority>1.00</priority>
+    <loc>https://gauravghadge.com/</loc>
+    <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://gaurav-portfolio.netlify.app/#about</loc>
-    <priority>0.80</priority>
+    <loc>https://gauravghadge.com/code-runner</loc>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://gaurav-portfolio.netlify.app/#projects</loc>
-    <priority>0.80</priority>
+    <loc>https://gauravghadge.com/#about</loc>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gaurav-portfolio.netlify.app/#certifications</loc>
-    <priority>0.70</priority>
+    <loc>https://gauravghadge.com/#python-practice</loc>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gaurav-portfolio.netlify.app/#contact</loc>
-    <priority>0.70</priority>
+    <loc>https://gauravghadge.com/#projects</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://gauravghadge.com/#contact</loc>
+    <priority>0.7</priority>
   </url>
 </urlset>
