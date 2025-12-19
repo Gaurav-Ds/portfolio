@@ -18,109 +18,157 @@ const Home = () => {
         <title>Home - Gaurav Ghadge | Generative & Agentic AI Engineer</title>
       </Helmet>
       
-      {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center section-padding pt-32">
+      {/* Hero Section - Mobile-First */}
+      <section className="min-h-screen flex items-center justify-center section-padding pt-20 sm:pt-24 md:pt-32">
         <div className="container-custom">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left Content */}
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            {/* Left Content - Mobile Optimized */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="space-y-8"
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="space-y-6 sm:space-y-8 order-2 lg:order-1"
             >
-              {/* Badges */}
-              <div className="flex flex-wrap gap-3">
-                <span className="px-4 py-2 glass-card text-sm font-semibold neon-text">🚀 AI Engineer</span>
-                <span className="px-4 py-2 glass-card text-sm font-semibold text-neon-pink">🤖 Agentic AI</span>
-                <span className="px-4 py-2 glass-card text-sm font-semibold text-neon-green">📊 Data Scientist</span>
-                <span className="px-4 py-2 glass-card text-sm font-semibold text-neon-cyan">🐍 Python Mentor</span>
-              </div>
+              {/* Badges - Mobile Optimized */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1, duration: 0.5 }}
+                className="flex flex-wrap gap-2 sm:gap-3"
+              >
+                <span className="px-3 py-1.5 sm:px-4 sm:py-2 glass-card text-xs sm:text-sm font-semibold neon-text">
+                  🚀 AI Engineer
+                </span>
+                <span className="px-3 py-1.5 sm:px-4 sm:py-2 glass-card text-xs sm:text-sm font-semibold text-neon-pink">
+                  🤖 Agentic AI
+                </span>
+                <span className="px-3 py-1.5 sm:px-4 sm:py-2 glass-card text-xs sm:text-sm font-semibold text-neon-green">
+                  📊 Data Scientist
+                </span>
+                <span className="px-3 py-1.5 sm:px-4 sm:py-2 glass-card text-xs sm:text-sm font-semibold text-neon-cyan">
+                  🐍 Python Mentor
+                </span>
+              </motion.div>
 
-              {/* Title */}
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
+              {/* Title - Mobile Optimized Typography */}
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.6 }}
+                className="font-bold leading-[1.1] tracking-tight"
+              >
                 Hi, I'm <span className="gradient-text">Gaurav Ghadge</span>
-              </h1>
+              </motion.h1>
               
-              <h2 className="text-2xl md:text-3xl font-semibold text-gray-300">
-                Generative & Agentic AI Engineer · AI Consultant · Python Mentor
-              </h2>
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.6 }}
+                className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-gray-300 leading-tight"
+              >
+                Generative & Agentic AI Engineer
+                <span className="hidden sm:inline"> · AI Consultant · Python Mentor</span>
+              </motion.h2>
 
-              <p className="text-lg text-gray-400 leading-relaxed">
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4, duration: 0.6 }}
+                className="text-base sm:text-lg text-gray-400 leading-relaxed"
+              >
                 Building <span className="neon-text font-semibold">Agentic AI systems</span>, 
                 <span className="neon-text font-semibold"> RAG solutions</span>, 
                 <span className="neon-text font-semibold"> automation tools</span>, 
                 <span className="neon-text font-semibold"> LLM-based apps</span>, and 
                 <span className="neon-text font-semibold"> analytics dashboards</span>.
-                <br />
-                <span className="text-gray-500">AI Master · Baap of AI · Top 1% Generative & Agentic AI Engineer</span>
-              </p>
+                <br className="hidden sm:block" />
+                <span className="text-sm sm:text-base text-gray-500 block mt-2">
+                  AI Master · Baap of AI · Top 1% Generative & Agentic AI Engineer
+                </span>
+              </motion.p>
 
-              {/* Stats */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {/* Stats - Mobile Optimized Grid */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5, duration: 0.6 }}
+                className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4"
+              >
                 {stats.map((stat, index) => (
                   <motion.div
                     key={index}
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.3 + index * 0.1 }}
-                    className="glass-card p-4 text-center"
+                    transition={{ delay: 0.6 + index * 0.1, duration: 0.4 }}
+                    className="glass-card p-3 sm:p-4 text-center"
                   >
-                    <div className="text-3xl font-bold neon-text">{stat.number}</div>
-                    <div className="text-sm text-gray-400 mt-1">{stat.label}</div>
+                    <div className="text-2xl sm:text-3xl font-bold neon-text">{stat.number}</div>
+                    <div className="text-xs sm:text-sm text-gray-400 mt-1 leading-tight">{stat.label}</div>
                   </motion.div>
                 ))}
-              </div>
+              </motion.div>
 
-              {/* CTA Buttons */}
-              <div className="flex flex-wrap gap-4">
+              {/* CTA Buttons - Mobile Optimized with Primary/Secondary Hierarchy */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.7, duration: 0.6 }}
+                className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 pt-2"
+              >
                 <a
                   href="/assets/resume.pdf"
                   download="Gaurav_Ghadge_Resume.pdf"
-                  className="btn-neon flex items-center space-x-2"
+                  className="btn-neon flex items-center justify-center space-x-2 w-full sm:w-auto"
+                  aria-label="Download Resume PDF"
                 >
-                  <FaFilePdf />
+                  <FaFilePdf aria-hidden="true" />
                   <span>Download Resume (PDF)</span>
-                </a>
-                <a
-                  href="/assets/resume.docx"
-                  download="Gaurav_Ghadge_Resume.docx"
-                  className="btn-glass flex items-center space-x-2"
-                >
-                  <FaFileWord />
-                  <span>Download Resume (Word)</span>
                 </a>
                 <Link
                   to="/projects"
-                  className="btn-glass flex items-center space-x-2"
+                  className="btn-neon flex items-center justify-center space-x-2 w-full sm:w-auto"
+                  aria-label="View AI Projects"
                 >
-                  <FaRocket />
+                  <FaRocket aria-hidden="true" />
                   <span>View AI Projects</span>
                 </Link>
                 <Link
                   to="/services"
-                  className="btn-neon flex items-center space-x-2"
+                  className="btn-glass flex items-center justify-center space-x-2 w-full sm:w-auto"
+                  aria-label="Hire for AI Projects"
                 >
-                  <FaCode />
-                  <span>Hire Me For AI Projects</span>
+                  <FaCode aria-hidden="true" />
+                  <span>Hire Me</span>
                 </Link>
-              </div>
+              </motion.div>
             </motion.div>
 
-            {/* Right Image */}
+            {/* Right Image - Mobile Optimized */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
+              initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative"
+              className="relative order-1 lg:order-2 mb-8 lg:mb-0"
             >
-              <div className="relative w-full max-w-md mx-auto">
-                <div className="absolute inset-0 bg-gradient-to-r from-neon-cyan to-neon-pink rounded-3xl blur-2xl opacity-30 animate-glow"></div>
-                <div className="relative glass-card p-4 rounded-3xl">
+              <div className="relative w-full max-w-sm sm:max-w-md mx-auto">
+                <motion.div
+                  animate={{
+                    boxShadow: [
+                      "0 0 40px rgba(0, 212, 255, 0.3)",
+                      "0 0 60px rgba(0, 212, 255, 0.5)",
+                      "0 0 40px rgba(0, 212, 255, 0.3)"
+                    ]
+                  }}
+                  transition={{ duration: 3, repeat: Infinity }}
+                  className="absolute inset-0 bg-gradient-to-r from-neon-cyan to-neon-pink rounded-3xl blur-2xl opacity-30"
+                />
+                <div className="relative glass-card p-3 sm:p-4 rounded-3xl">
                   <img
                     src={profileImage}
-                    alt="Gaurav Ghadge - AI Engineer"
+                    alt="Gaurav Ghadge - Generative & Agentic AI Engineer"
                     className="w-full h-auto rounded-2xl"
+                    loading="eager"
+                    fetchPriority="high"
                   />
                 </div>
               </div>

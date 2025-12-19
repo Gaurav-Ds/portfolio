@@ -103,24 +103,25 @@ const Projects = () => {
         <title>AI Projects - Gaurav Ghadge | Portfolio</title>
       </Helmet>
 
-      <section className="section-padding pt-32">
+      <section className="section-padding pt-20 sm:pt-24 md:pt-32">
         <div className="container-custom">
-          {/* Header */}
+          {/* Header - Mobile Optimized */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-center mb-16"
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12 sm:mb-16"
           >
-            <h1 className="text-5xl md:text-6xl font-bold mb-4">
+            <h1 className="font-bold mb-4 sm:mb-6">
               AI & Data <span className="gradient-text">Projects</span>
             </h1>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-gray-400 max-w-3xl mx-auto px-4">
               Real-world AI solutions that drive business value — from RAG systems to automation agents, analytics dashboards to LLM applications.
             </p>
           </motion.div>
 
-          {/* Projects Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Projects Grid - Mobile First */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {projects.map((project, index) => {
               const Icon = project.icon
               return (
@@ -128,20 +129,29 @@ const Projects = () => {
                   key={project.id}
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  className="glass-card p-6 hover:border-neon-cyan/50 transition-all duration-300 cursor-pointer group"
+                  transition={{ delay: index * 0.1, duration: 0.5 }}
+                  className="glass-card p-5 sm:p-6 hover:border-neon-cyan/50 active:scale-[0.98] transition-all duration-300 cursor-pointer group"
                   onClick={() => setSelectedProject(project)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault()
+                      setSelectedProject(project)
+                    }
+                  }}
+                  aria-label={`View details for ${project.title}`}
                 >
                   <div className="flex items-start justify-between mb-4">
-                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-r from-neon-cyan to-neon-pink flex items-center justify-center`}>
-                      <Icon className="text-2xl text-white" />
+                    <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-gradient-to-r from-neon-cyan to-neon-pink flex items-center justify-center flex-shrink-0`}>
+                      <Icon className="text-xl sm:text-2xl text-white" aria-hidden="true" />
                     </div>
                     <span className="text-xs px-2 py-1 glass-card text-neon-cyan">AI/ML</span>
                   </div>
-                  <h3 className="text-xl font-bold mb-3 group-hover:text-neon-cyan transition-colors">
+                  <h3 className="text-lg sm:text-xl font-bold mb-3 group-hover:text-neon-cyan transition-colors">
                     {project.title}
                   </h3>
-                  <p className="text-gray-400 text-sm mb-4 line-clamp-3">
+                  <p className="text-gray-400 text-sm mb-4 line-clamp-3 leading-relaxed">
                     {project.problem}
                   </p>
                   <div className="flex flex-wrap gap-2 mb-4">
@@ -160,10 +170,10 @@ const Projects = () => {
                     )}
                   </div>
                   <div className="flex items-center space-x-4 text-sm">
-                    <button className="text-neon-cyan hover:text-neon-pink transition-colors flex items-center space-x-1">
+                    <span className="text-neon-cyan group-hover:text-neon-pink transition-colors flex items-center space-x-1">
                       <span>View Details</span>
-                      <FaExternalLinkAlt className="text-xs" />
-                    </button>
+                      <FaExternalLinkAlt className="text-xs" aria-hidden="true" />
+                    </span>
                   </div>
                 </motion.div>
               )
@@ -183,11 +193,15 @@ const Projects = () => {
             onClick={() => setSelectedProject(null)}
           >
             <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              className="glass-card p-8 max-w-3xl w-full max-h-[90vh] overflow-y-auto"
+              initial={{ scale: 0.95, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.95, opacity: 0, y: 20 }}
+              transition={{ duration: 0.3 }}
+              className="glass-card p-5 sm:p-6 md:p-8 max-w-3xl w-full max-h-[90vh] overflow-y-auto"
               onClick={(e) => e.stopPropagation()}
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="project-title"
             >
               <div className="flex items-start justify-between mb-6">
                 <div className="flex items-center space-x-4">

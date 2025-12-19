@@ -15,12 +15,17 @@ function App() {
   return (
     <Router>
       <Helmet>
-        <title>Gaurav Ghadge - Generative & Agentic AI Engineer | AI Consultant</title>
-        <meta name="description" content="5+ years building Agentic AI systems, RAG solutions, and LLM-based applications. AI Master · Baap of AI · Top 1% Generative & Agentic AI Engineer" />
+        <html lang="en" />
+        <title>Gaurav Ghadge - Generative & Agentic AI Engineer | AI Consultant | Top 1% AI Master</title>
+        <meta name="description" content="Gaurav Ghadge - 5+ years building Agentic AI systems, RAG solutions, and LLM-based applications. AI Master · Baap of AI · Top 1% Generative & Agentic AI Engineer. Expert in Python, LangChain, OpenAI, and multi-agent systems." />
+        <meta name="keywords" content="Gaurav Ghadge, AI Engineer, Generative AI, Agentic AI, RAG, LangChain, AI Consultant, Python Mentor, Data Scientist, LLM, OpenAI, GPT-4, Multi-Agent Systems, AI Development" />
+        <meta name="author" content="Gaurav Ghadge" />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <link rel="canonical" href="https://gauravghadge.com" />
       </Helmet>
       <div className="min-h-screen flex flex-col">
         <Navbar />
-        <main className="flex-grow">
+        <main className="flex-grow" role="main">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
