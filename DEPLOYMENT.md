@@ -1,255 +1,319 @@
-# 🚀 Deployment Guide - Python Practice Website
+# Deployment Guide - gauravghadge.com
 
-This guide will help you deploy your Python Practice Website to various platforms.
+This guide covers deploying the React portfolio to production with custom domain `gauravghadge.com`.
 
 ## 📋 Prerequisites
 
-- Python 3.8+ installed
-- Git repository set up
-- Domain name (optional): `gauravghadge.com`
+1. **Node.js 18+** installed
+2. **GitHub account** with repository access
+3. **Domain:** `gauravghadge.com` configured
 
-## 🎯 Deployment Options
+## 🛠️ Build Process
 
-### Option 1: Streamlit Cloud (Recommended)
+### 1. Install Dependencies
 
-**Best for: Python Code Runner**
+```bash
+npm install
+```
 
-1. **Prepare your repository:**
+### 2. Build for Production
+
+```bash
+npm run build
+```
+
+This creates an optimized production build in the `dist/` folder.
+
+### 3. Test Build Locally (Optional)
+
+```bash
+npm run preview
+```
+
+Visit `http://localhost:4173` to preview the production build before deploying.
+
+---
+
+## 🚀 Deployment Options
+
+### Option 1: Vercel (Recommended - Easiest)
+
+**Best for:** Automatic deployments, custom domains, zero configuration
+
+#### Method 1: GitHub Integration (Recommended)
+
+1. **Push code to GitHub:**
    ```bash
-   # Ensure these files are in your repo:
-   - code-runner.py
-   - requirements.txt
-   - README.md
+   git add .
+   git commit -m "Replace old portfolio with new React AI portfolio"
+   git push origin main
    ```
 
-2. **Deploy to Streamlit Cloud:**
-   - Go to [share.streamlit.io](https://share.streamlit.io)
-   - Sign in with GitHub
-   - Connect your repository
-   - Set the main file path: `code-runner.py`
-   - Click "Deploy"
-
-3. **Your Streamlit app will be available at:**
-   ```
-   https://your-app-name.streamlit.app
-   ```
-
-### Option 2: Netlify (Static Site)
-
-**Best for: Main website (HTML/CSS/JS)**
-
-1. **Prepare for deployment:**
-   ```bash
-   # Your static files should include:
-   - index.html
-   - style.css
-   - script.js
-   - success.html
-   - 404.html
-   - favicon.svg
-   - sitemap.xml
-   - robots.txt
-   ```
-
-2. **Deploy to Netlify:**
-   - Go to [netlify.com](https://netlify.com)
-   - Sign in with GitHub
-   - Click "New site from Git"
-   - Select your repository
-   - Set build command: (leave empty for static site)
-   - Set publish directory: `/` (root)
-   - Click "Deploy site"
-
-3. **Custom domain setup:**
-   - In Netlify dashboard, go to "Domain settings"
-   - Add custom domain: `gauravghadge.com`
-   - Update DNS records with your domain provider
-
-### Option 3: Vercel
-
-**Best for: Static site with serverless functions**
-
-1. **Deploy to Vercel:**
+2. **Deploy on Vercel:**
    - Go to [vercel.com](https://vercel.com)
    - Sign in with GitHub
-   - Import your repository
-   - Vercel will auto-detect it's a static site
+   - Click "New Project"
+   - Import your GitHub repository
+   - Vercel auto-detects Vite settings:
+     - Build Command: `npm run build`
+     - Output Directory: `dist`
    - Click "Deploy"
+   - Your site will be live in ~30 seconds
 
-2. **Custom domain:**
-   - In Vercel dashboard, go to "Settings" → "Domains"
-   - Add your custom domain
+3. **Add Custom Domain:**
+   - Go to Project Settings → Domains
+   - Add `gauravghadge.com`
+   - Add `www.gauravghadge.com` (optional)
+   - Follow DNS instructions:
+     - Add A record: `@` → Vercel IP (shown in dashboard)
+     - Add CNAME: `www` → `cname.vercel-dns.com`
+   - Wait for DNS propagation (5-60 minutes)
+   - SSL certificate is automatically provisioned
 
-### Option 4: GitHub Pages
+**Advantages:**
+- ✅ Free tier available
+- ✅ Automatic HTTPS
+- ✅ Auto-deploy on every git push
+- ✅ Zero configuration needed
+- ✅ Global CDN
+- ✅ Preview deployments for PRs
 
-**Best for: Simple static hosting**
+#### Method 2: Vercel CLI
 
-1. **Enable GitHub Pages:**
-   - Go to your repository settings
-   - Scroll to "Pages" section
-   - Select "Deploy from a branch"
-   - Choose `main` branch
-   - Click "Save"
+```bash
+npm i -g vercel
+vercel
+```
 
-2. **Your site will be available at:**
+Follow the prompts. Then add domain in Vercel dashboard.
+
+---
+
+### Option 2: GitHub Pages
+
+**Best for:** Free hosting, simple setup
+
+#### Setup Steps:
+
+1. **Install gh-pages:**
+   ```bash
+   npm install --save-dev gh-pages
    ```
-   https://yourusername.github.io/portfolio
+
+2. **Update `package.json`:**
+   Add these scripts:
+   ```json
+   {
+     "scripts": {
+       "predeploy": "npm run build",
+       "deploy": "gh-pages -d dist"
+     }
+   }
    ```
 
-## 🔧 Configuration Files
+3. **Update `vite.config.js`:**
+   ```js
+   export default defineConfig({
+     base: '/',
+     // ... rest of config
+   })
+   ```
 
-### For Streamlit Cloud
+4. **Add CNAME file:**
+   The `CNAME` file is already in the root. For GitHub Pages, it should be in `public/` folder:
+   ```bash
+   # Copy CNAME to public folder (Vite will include it in dist/)
+   cp CNAME public/CNAME
+   ```
 
-**requirements.txt:**
+5. **Deploy:**
+   ```bash
+   npm run deploy
+   ```
+
+6. **Enable GitHub Pages:**
+   - Go to your repo → Settings → Pages
+   - Source: `gh-pages` branch
+   - Custom domain: `gauravghadge.com`
+   - Save
+
+7. **Configure DNS:**
+   - Add CNAME record: `gauravghadge.com` → `yourusername.github.io`
+   - Add CNAME record: `www.gauravghadge.com` → `yourusername.github.io`
+   - Wait for DNS propagation
+
+**Note:** GitHub Pages doesn't support SPA routing by default. You may need a 404.html redirect for client-side routing.
+
+---
+
+### Option 3: Netlify
+
+**Best for:** Drag & drop simplicity, form handling
+
+#### Method 1: GitHub Integration
+
+1. Push code to GitHub
+2. Go to [netlify.com](https://netlify.com)
+3. "New site from Git"
+4. Connect GitHub, select repository
+5. Build settings:
+   - Build command: `npm run build`
+   - Publish directory: `dist`
+6. Click "Deploy"
+7. Add custom domain in Site Settings → Domain Management
+
+#### Method 2: Netlify CLI
+
+```bash
+npm i -g netlify-cli
+netlify deploy --prod
 ```
-streamlit==1.28.1
-pandas==2.1.3
-numpy==1.24.3
-```
 
-**streamlit/config.toml (optional):**
-```toml
-[theme]
-primaryColor = "#00d4ff"
-backgroundColor = "#0a0a0a"
-secondaryBackgroundColor = "#111111"
-textColor = "#ffffff"
-```
+---
 
-### For Netlify/Vercel
+## 🔧 Post-Deployment Checklist
 
-**netlify.toml (optional):**
-```toml
-[build]
-  publish = "."
+After deploying, verify:
 
-[[redirects]]
-  from = "/code-runner"
-  to = "https://your-streamlit-app.streamlit.app"
-  status = 302
+- [ ] Site loads at `https://gauravghadge.com`
+- [ ] All pages load correctly (Home, About, Skills, Projects, Services, Solutions, Contact)
+- [ ] Client-side routing works (no 404s on refresh)
+- [ ] Contact form works (if connected to backend)
+- [ ] WhatsApp button has correct number
+- [ ] Resume downloads work (`/assets/resume.pdf`)
+- [ ] All images load correctly
+- [ ] Mobile responsiveness works
+- [ ] SEO meta tags are correct
+- [ ] Google Analytics is tracking (if configured)
+- [ ] No console errors
+- [ ] HTTPS is enabled
+- [ ] Custom domain is active
 
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-```
+---
 
-## 🌐 Domain Configuration
+## 🌐 Custom Domain Configuration
 
-### DNS Settings
+### DNS Records for gauravghadge.com
 
-If using custom domain `gauravghadge.com`:
-
-**For Netlify:**
+#### For Vercel:
 ```
 Type: A
 Name: @
-Value: 75.2.60.5
-
-Type: CNAME
-Name: www
-Value: your-site.netlify.app
-```
-
-**For Vercel:**
-```
-Type: A
-Name: @
-Value: 76.76.19.19
+Value: [Vercel IP from dashboard]
 
 Type: CNAME
 Name: www
 Value: cname.vercel-dns.com
 ```
 
-## 📱 Environment Variables
-
-### For Streamlit Cloud
-
-Set these in your Streamlit Cloud dashboard:
-
+#### For GitHub Pages:
 ```
-STREAMLIT_SERVER_PORT = 8501
-STREAMLIT_SERVER_ADDRESS = 0.0.0.0
-```
+Type: CNAME
+Name: @
+Value: yourusername.github.io
 
-### For Netlify/Vercel
-
-Set these in your deployment platform:
-
-```
-SITE_URL = https://gauravghadge.com
-CONTACT_EMAIL = gghadge225@gmail.com
+Type: CNAME
+Name: www
+Value: yourusername.github.io
 ```
 
-## 🔒 Security Considerations
+#### For Netlify:
+```
+Type: A
+Name: @
+Value: [Netlify IP]
 
-1. **HTTPS**: All platforms provide SSL certificates
-2. **CORS**: Configure if needed for API calls
-3. **Rate Limiting**: Consider for contact form
-4. **Input Validation**: Already implemented in forms
-
-## 📊 Analytics Setup
-
-### Google Analytics
-
-Add to your HTML head:
-
-```html
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'GA_MEASUREMENT_ID');
-</script>
+Type: CNAME
+Name: www
+Value: yoursite.netlify.app
 ```
 
-### Search Console
+**DNS Propagation:** Can take 5 minutes to 48 hours. Usually completes within 1 hour.
 
-1. Go to [Google Search Console](https://search.google.com/search-console)
-2. Add your property: `https://gauravghadge.com`
-3. Verify ownership (usually via DNS or HTML tag)
-4. Submit your sitemap: `https://gauravghadge.com/sitemap.xml`
-
-## 🚀 Final Deployment Checklist
-
-- [ ] All files committed to Git
-- [ ] Requirements.txt updated
-- [ ] Sitemap.xml updated with correct URLs
-- [ ] Robots.txt configured
-- [ ] Custom domain configured (if applicable)
-- [ ] SSL certificate active
-- [ ] Analytics tracking working
-- [ ] Contact form tested
-- [ ] Python code runner working
-- [ ] 404 page working
-- [ ] Success page working
-- [ ] Mobile responsiveness tested
-- [ ] SEO meta tags verified
+---
 
 ## 🔄 Continuous Deployment
 
-Both Netlify and Vercel offer automatic deployments:
+### Vercel / Netlify
+- Automatically deploys on every `git push` to `main` branch
+- Creates preview deployments for pull requests
+- No manual steps needed
 
-1. **Connect your GitHub repository**
-2. **Every push to main branch triggers deployment**
-3. **Preview deployments for pull requests**
+### GitHub Pages
+- Run `npm run deploy` after each update
+- Or set up GitHub Actions for automatic deployment
+
+---
+
+## 🐛 Troubleshooting
+
+### Build Fails
+- Check Node.js version: `node --version` (should be 18+)
+- Delete `node_modules` and `package-lock.json`, then `npm install`
+- Check for syntax errors in console
+
+### 404 Errors on Page Refresh
+- **Vercel:** Automatically handled
+- **Netlify:** Add `_redirects` file in `public/`:
+  ```
+  /*    /index.html   200
+  ```
+- **GitHub Pages:** Add `404.html` that redirects to `index.html`
+
+### Assets Not Loading
+- Ensure files are in `public/` folder (not `src/`)
+- Use absolute paths: `/assets/resume.pdf` (not `./assets/resume.pdf`)
+- Check browser console for 404 errors
+
+### Domain Not Working
+- Verify DNS records are correct
+- Wait for DNS propagation (can take up to 48 hours)
+- Check domain status in hosting provider dashboard
+- Ensure SSL certificate is provisioned
+
+### Slow Loading
+- Enable compression on server (usually automatic)
+- Optimize images before adding to project
+- Check network tab in browser DevTools
+
+---
+
+## 📝 Environment Variables (If Needed)
+
+If you need environment variables:
+
+1. **Create `.env` file:**
+   ```
+   VITE_API_URL=https://api.example.com
+   VITE_ANALYTICS_ID=G-XXXXXXXXXX
+   ```
+
+2. **Access in code:**
+   ```js
+   import.meta.env.VITE_API_URL
+   ```
+
+3. **Add to `.gitignore`:**
+   ```
+   .env
+   .env.local
+   ```
+
+4. **Add to Vercel/Netlify:**
+   - Go to Project Settings → Environment Variables
+   - Add variables there (don't commit `.env` files)
+
+---
 
 ## 📞 Support
 
-If you encounter issues:
+For deployment issues:
+- Email: gghadge225@gmail.com
+- Check hosting provider documentation
+- Review build logs in hosting dashboard
 
-1. Check platform-specific documentation
-2. Verify all files are in the correct locations
-3. Check browser console for errors
-4. Test locally before deploying
+---
 
-## 🎉 Success!
-
-Once deployed, your Python Practice Website will be live at:
-- **Main Site**: `https://gauravghadge.com`
-- **Python Runner**: `https://your-app-name.streamlit.app`
-
-Your students can now practice Python programming with live code execution! 🐍✨ 
+**Last Updated:** 2025-01-13
+**Domain:** gauravghadge.com
+**Framework:** React + Vite

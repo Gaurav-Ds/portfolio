@@ -1,280 +1,209 @@
-# 🚀 Gaurav Ghadge - AI Engineer Portfolio
+# Gaurav Ghadge - Premium AI Engineer Portfolio
 
-A modern, responsive portfolio website showcasing AI engineering expertise with cutting-edge web technologies and stunning visual design.
+A world-class, ultra-premium portfolio website built with React, showcasing expertise in Generative & Agentic AI, RAG systems, and LLM applications.
 
-## 🌐 Live Demo
+## 🚀 Tech Stack
 
-**🌍 Website:** [https://gauravghadge.com](https://gauravghadge.com)
-
-## ✨ Features
-
-### 🎨 Modern Design
-- **Dark + Neon Theme**: Sleek dark background with vibrant neon accents
-- **Glassmorphism UI**: Modern glass-like effects with backdrop blur
-- **Smooth Animations**: AOS (Animate On Scroll) library integration
-- **Responsive Design**: Perfect on all devices (mobile, tablet, desktop)
-
-### 🚀 Interactive Elements
-- **Project Modals**: Full-screen detailed project showcases
-- **Smooth Scrolling**: Seamless navigation between sections
-- **Scroll Spy**: Active section highlighting in navigation
-- **Toast Notifications**: User feedback for form submissions
-- **Loading Screen**: Professional loading animation
-
-### 📱 Advanced Functionality
-- **PWA Ready**: Progressive Web App capabilities
-- **SEO Optimized**: Meta tags, Open Graph, Twitter Cards
-- **Performance Optimized**: Lazy loading, optimized images
-- **Accessibility**: ARIA labels, keyboard navigation
-- **Analytics Ready**: Google Analytics integration ready
-
-## 🛠️ Technologies Used
-
-### Frontend
-- **HTML5**: Semantic markup with modern standards
-- **CSS3**: Advanced styling with CSS Grid, Flexbox, and custom properties
-- **JavaScript (ES6+)**: Modern JavaScript with async/await, modules
-- **AOS Library**: Animate On Scroll animations
-- **Font Awesome**: Professional icon library
-- **Google Fonts**: Inter font family for typography
-
-### Libraries & Tools
-- **Toastify.js**: Toast notification system
-- **AOS**: Animate On Scroll library
-- **Font Awesome**: Icon library
-- **Google Fonts**: Typography
-
-### Performance & SEO
-- **Lazy Loading**: Optimized image loading
-- **Meta Tags**: Comprehensive SEO optimization
-- **PWA Manifest**: Progressive Web App support
-- **Service Worker**: Offline capabilities (ready for implementation)
+- **React 18** - Modern UI library
+- **Vite** - Lightning-fast build tool
+- **React Router** - Client-side routing
+- **Tailwind CSS** - Utility-first CSS framework
+- **Framer Motion** - Smooth animations
+- **React Icons** - Icon library
+- **React Helmet Async** - SEO management
 
 ## 📁 Project Structure
 
 ```
 Portfolio-main/
-├── index.html              # Main HTML file
-├── style.css               # Complete CSS styling
-├── script.js               # JavaScript functionality
-├── submit.php              # Contact form backend
-├── site.webmanifest        # PWA manifest
-├── sitemap.xml             # SEO sitemap
-├── README.md               # Project documentation
-├── favicon.png             # Main favicon
-├── preview.png             # Social media preview
-├── Gaurav Ghadge.jpg       # Profile image
-├── Gaurav_Ghadge.pdf       # Resume file
-├── E-commerce sales Dashboard.png
-├── E-commerce sales Dashboard (1).png
-└── SQL.png
+├── public/
+│   ├── assets/
+│   │   ├── resume.pdf          # Your resume PDF (required)
+│   │   └── resume.docx         # Your resume Word doc (optional)
+│   ├── favicon.png
+│   ├── preview.png
+│   ├── site.webmanifest
+│   └── sitemap.xml
+├── src/
+│   ├── components/
+│   │   ├── Navbar.jsx
+│   │   ├── Footer.jsx
+│   │   └── WhatsAppButton.jsx
+│   ├── pages/
+│   │   ├── Home.jsx
+│   │   ├── About.jsx
+│   │   ├── Skills.jsx
+│   │   ├── Projects.jsx
+│   │   ├── Services.jsx
+│   │   ├── Solutions.jsx
+│   │   └── Contact.jsx
+│   ├── config/
+│   │   └── personalConfig.js   # WhatsApp number & personal config
+│   ├── assets/
+│   │   └── profile.jpg         # Your profile image
+│   ├── App.jsx
+│   ├── main.jsx
+│   └── index.css
+├── index.html                  # Vite HTML template (React entry point)
+├── package.json
+├── vite.config.js
+├── tailwind.config.js
+└── postcss.config.js
 ```
 
-## 🚀 Quick Start
+## 🛠️ Quick Setup
 
-### Prerequisites
-- Modern web browser
-- Local web server (for development)
+### 1. Install Dependencies
 
-### Installation
-
-1. **Clone the repository**
    ```bash
-   git clone https://github.com/Gaurav-Ds/portfolio.git
-   cd portfolio
-   ```
-
-2. **Open in browser**
-   - For development: Use a local server (Live Server extension, Python server, etc.)
-   - For production: Upload to web hosting service
-
-3. **Local Development Server**
-   ```bash
-   # Using Python 3
-   python -m http.server 8000
-   
-   # Using Node.js (if you have http-server installed)
-   npx http-server
-   
-   # Using PHP
-   php -S localhost:8000
-   ```
-
-4. **Access the site**
-   - Open your browser and navigate to `http://localhost:8000`
-
-## 🎯 Key Sections
-
-### 🏠 Home Section
-- Hero introduction with animated badges
-- Professional statistics display
-- Call-to-action buttons
-- Animated profile image with glow effects
-
-### 👨‍💻 About Section
-- Professional background and expertise
-- Key highlights with icons
-- Responsive layout with glassmorphism effects
-
-### 🛠️ Skills Section
-- Categorized skill display (AI/ML, Programming, Computer Vision)
-- Interactive skill items with hover effects
-- Modern card-based layout
-
-### 📊 Projects Section
-- Featured AI projects with detailed modals
-- Technology stacks and results
-- GitHub and live demo links
-- Interactive project cards
-
-### 📄 Resume Section
-- Professional resume preview
-- Download functionality
-- Statistics display
-
-### 📧 Contact Section
-- Contact information with icons
-- Functional contact form with validation
-- Toast notifications for user feedback
-
-## 🎨 Design System
-
-### Color Palette
-- **Primary Background**: `#0a0a0a` (Deep Black)
-- **Secondary Background**: `#111111` (Dark Gray)
-- **Neon Primary**: `#00d4ff` (Cyan)
-- **Neon Secondary**: `#ff0080` (Magenta)
-- **Neon Tertiary**: `#00ff88` (Green)
-
-### Typography
-- **Primary Font**: Inter (Google Fonts)
-- **Font Weights**: 300, 400, 500, 600, 700, 800, 900
-- **Responsive Sizing**: Fluid typography system
-
-### Animations
-- **AOS Animations**: Fade, slide, zoom effects
-- **CSS Transitions**: Smooth hover effects
-- **Custom Keyframes**: Loading, floating, glow animations
-
-## 📱 Responsive Breakpoints
-
-- **Mobile**: < 768px
-- **Tablet**: 768px - 1024px
-- **Desktop**: > 1024px
-
-## 🔧 Customization
-
-### Colors
-Edit CSS variables in `style.css`:
-```css
-:root {
-    --neon-primary: #00d4ff;
-    --neon-secondary: #ff0080;
-    --bg-primary: #0a0a0a;
-    /* ... other variables */
-}
+npm install
 ```
 
-### Content
-- Update personal information in `index.html`
-- Modify project data in `script.js` (projectData object)
-- Replace images in the root directory
+### 2. Add Your Assets
 
-### Styling
-- Modify `style.css` for design changes
-- Add new animations in the CSS file
-- Update responsive breakpoints as needed
+**Profile Image:**
+- Place your profile photo at: `src/assets/profile.jpg`
+- Supported formats: JPG, PNG, WebP
 
-## 🚀 Deployment
+**Resume Files:**
+- PDF: Place at `public/assets/resume.pdf` (required)
+- Word: Place at `public/assets/resume.docx` (optional)
 
-### GitHub Pages
-1. Push code to GitHub repository
-2. Enable GitHub Pages in repository settings
-3. Set custom domain (optional)
+### 3. Configure WhatsApp
 
-### Netlify
-1. Connect GitHub repository to Netlify
-2. Configure build settings
-3. Set custom domain
-
-### Vercel
-1. Import GitHub repository to Vercel
-2. Deploy automatically
-3. Configure custom domain
-
-## 📊 Performance
-
-### Optimizations Implemented
-- **Lazy Loading**: Images load only when needed
-- **CSS Optimization**: Efficient selectors and properties
-- **JavaScript Optimization**: Debounced scroll events
-- **Image Optimization**: Web-optimized image formats
-- **Minification Ready**: CSS and JS ready for minification
-
-### Lighthouse Scores (Target)
-- **Performance**: 95+
-- **Accessibility**: 100
-- **Best Practices**: 100
-- **SEO**: 100
-
-## 🔒 Security
-
-- **Form Validation**: Client-side and server-side validation
-- **XSS Protection**: Sanitized user inputs
-- **HTTPS Ready**: Secure connection support
-- **CSP Headers**: Content Security Policy ready
-
-## 📈 Analytics & Tracking
-
-### Google Analytics (Ready for Integration)
+Edit `src/config/personalConfig.js`:
 ```javascript
-// Add to script.js
-gtag('config', 'GA_MEASUREMENT_ID');
+export const MY_WHATSAPP_NUMBER = '91XXXXXXXXXX' // Replace with your real number
+export const WHATSAPP_DEFAULT_MESSAGE = 'Hi Gaurav, I saw your AI portfolio and want to discuss a project.'
 ```
 
-### Event Tracking
-- Project modal opens
-- Contact form submissions
-- Resume downloads
-- Navigation interactions
+**Important:** 
+- Use format: country code + number (no + sign, no spaces)
+- Example: `919876543210` for India
 
-## 🤝 Contributing
+### 4. Run Development Server
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+```bash
+npm run dev
+```
+
+Visit: `http://localhost:3000`
+
+### 5. Build for Production
+
+```bash
+npm run build
+```
+
+The production build will be in the `dist/` folder.
+
+## 📦 Deployment
+
+### Vercel (Recommended)
+
+1. Push code to GitHub
+2. Go to [vercel.com](https://vercel.com)
+3. Import your repository
+4. Vercel auto-detects Vite settings
+5. Click "Deploy"
+
+See `DEPLOYMENT.md` for detailed deployment instructions.
+
+## ⚙️ Configuration
+
+### Contact Form
+
+The contact form currently simulates submission. To connect to a real backend:
+
+1. **Option 1: Formspree**
+   - Sign up at [formspree.io](https://formspree.io)
+   - Get your form ID
+   - Update `src/pages/Contact.jsx` → `handleSubmit` function
+
+2. **Option 2: Custom Backend**
+   - Update the `handleSubmit` function in `src/pages/Contact.jsx`
+   - Point to your API endpoint
+
+See the TODO comment in `Contact.jsx` for integration details.
+
+### Routes
+
+All routes are configured in `src/App.jsx`:
+- `/` → Home
+- `/about` → About
+- `/skills` → Skills
+- `/projects` → Projects
+- `/services` → Services
+- `/solutions` → Solutions
+- `/contact` → Contact
+
+## 📱 Features
+
+- ✅ Fully responsive design
+- ✅ Dark theme with neon accents
+- ✅ Smooth animations (Framer Motion)
+- ✅ SEO optimized
+- ✅ Fast loading (Vite)
+- ✅ Modern React patterns
+- ✅ Accessible components
+- ✅ WhatsApp integration
+- ✅ Contact form with validation
+- ✅ Project showcase
+- ✅ Skills display
+- ✅ Services & Solutions pages
+
+## 🎨 Design Philosophy
+
+- **Premium AI Agency Feel:** Dark backgrounds, neon glows, futuristic aesthetics
+- **Clean & Modern:** Minimal clutter, focus on content
+- **Professional:** Showcases expertise without being flashy
+- **User-Friendly:** Intuitive navigation, clear CTAs
+
+## 📝 Customization
+
+### Update Personal Information
+
+- **Name & Title:** Edit `src/pages/Home.jsx`
+- **About Section:** Edit `src/pages/About.jsx`
+- **Skills:** Edit `src/pages/Skills.jsx`
+- **Projects:** Edit `src/pages/Projects.jsx`
+- **Contact Info:** Edit `src/pages/Contact.jsx` and `src/components/Footer.jsx`
+
+### Update Colors & Theme
+
+Edit `tailwind.config.js` and `src/index.css` to customize colors, fonts, and styling.
+
+### Add/Remove Pages
+
+1. Create new page in `src/pages/`
+2. Add route in `src/App.jsx`
+3. Add navigation link in `src/components/Navbar.jsx`
+
+## 🔧 Important Notes
+
+### Asset Paths
+
+- **Profile Image:** Import from `src/assets/profile.jpg` (handled by Vite)
+- **Resume PDF:** Use `/assets/resume.pdf` (public folder, works in production)
+- **Resume Word:** Use `/assets/resume.docx` (public folder)
+
+## 🚀 Production Build
+
+This is a production-ready React portfolio. The old static files have been removed and replaced with this modern React application.
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is private and proprietary.
 
-## 👨‍💻 Author
+## 👤 Author
 
 **Gaurav Ghadge**
-- **Email**: gghadge225@gmail.com
-- **LinkedIn**: [Gaurav Ghadge](https://www.linkedin.com/in/er-gaurav-ghadge)
-- **GitHub**: [@gauravghadge](https://github.com/gauravghadge)
-- **Portfolio**: [gauravghadge.com](https://gauravghadge.com)
-
-## 🙏 Acknowledgments
-
-- **AOS Library**: For smooth scroll animations
-- **Font Awesome**: For professional icons
-- **Google Fonts**: For beautiful typography
-- **Toastify**: For elegant notifications
-- **Design Inspiration**: Modern web design trends
-
-## 📞 Support
-
-If you have any questions or need support:
-- **Email**: gghadge225@gmail.com
-- **LinkedIn**: [Connect on LinkedIn](https://www.linkedin.com/in/er-gaurav-ghadge)
-- **GitHub Issues**: [Create an issue](https://github.com/Gaurav-Ds/portfolio/issues)
+- Generative & Agentic AI Engineer
+- AI Consultant
+- Python Mentor
+- Email: gghadge225@gmail.com
+- Website: https://gauravghadge.com
 
 ---
 
-⭐ **Star this repository if you found it helpful!**
-
-🔗 **Live Demo**: [https://gauravghadge.com](https://gauravghadge.com)
+Built with ❤️ using React + Vite
